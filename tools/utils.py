@@ -28,11 +28,11 @@ def flatten(l: list) -> list:
 
 
 def ints(s: str) -> List[int]:
-    return lmap(int, re.findall(r"-?\d+", s))  # thanks mserrano!
+    return lmap(int, re.findall(r"-?\d+", s))
 
 
 def positive_ints(s: str) -> List[int]:
-    return lmap(int, re.findall(r"\d+", s))  # thanks mserrano!
+    return lmap(int, re.findall(r"\d+", s))
 
 
 def floats(s: str) -> List[float]:
@@ -54,6 +54,7 @@ def get_actual(day=None, year=None):
     except FileNotFoundError:
         pass
     from pathlib import Path
+
     # let's try grabbing it
     search_path = Path(".").resolve()
     try:
@@ -70,6 +71,7 @@ def get_actual(day=None, year=None):
 
     # is it time?
     from datetime import datetime, timezone, timedelta
+
     est = timezone(timedelta(hours=-5))
     unlock_time = datetime(year, 12, day, tzinfo=est)
     cur_time = datetime.now(tz=est)
@@ -78,7 +80,9 @@ def get_actual(day=None, year=None):
         print("Remaining time until unlock: {}".format(delta))
         return ""
 
-    while (not list(search_path.glob("*/token.txt"))) and search_path.parent != search_path:
+    while (
+        not list(search_path.glob("*/token.txt"))
+    ) and search_path.parent != search_path:
         search_path = search_path.parent
 
     token_files = list(search_path.glob("*/token.txt"))
@@ -96,8 +100,12 @@ def get_actual(day=None, year=None):
     import urllib.request
     import urllib.error
     import shutil
+
     opener = urllib.request.build_opener()
-    opener.addheaders = [("Cookie", "session={}".format(token)), ("User-Agent", "python-requests/2.19.1")]
+    opener.addheaders = [
+        ("Cookie", "session={}".format(token)),
+        ("User-Agent", "python-requests/2.19.1"),
+    ]
     print("Sending request...")
     url = "https://adventofcode.com/{}/day/{}/input".format(year, day)
     try:

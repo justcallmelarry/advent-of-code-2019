@@ -8,8 +8,8 @@ def get_fuel(mass: int) -> int:
     return max(math.floor(mass / 3) - 2, 0)
 
 
-if __name__ == '__main__':
-    day = os.path.dirname(os.path.abspath(__file__)).rsplit('/', 1)[-1]
+if __name__ == "__main__":
+    day = os.path.dirname(os.path.abspath(__file__)).rsplit("/", 1)[-1]
     input_list = get_actual(day=int(day), year=2019).splitlines()
 
     total_fuel = 0
