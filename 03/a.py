@@ -5,12 +5,6 @@ from utils import get_actual
 from utils import *
 
 
-def manhattan_dist(coords, target_coords):
-    dx = abs(coords[0] - target_coords[0])
-    dy = abs(coords[1] - target_coords[1])
-    return abs(dx + dy)
-
-
 def calc(x, y, grid):
     grid[f"{x}:{y}"] = i if grid.get(f"{x}:{y}") in (None, i) else True
 

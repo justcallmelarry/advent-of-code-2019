@@ -126,3 +126,9 @@ def get_actual(day=None, year=None):
         else:
             print("Request failed with code {}??".format(status_code))
         return ""
+
+
+def manhattan_dist(coords, target_coords):
+    dx = abs(coords[0] - target_coords[0])
+    dy = abs(coords[1] - target_coords[1])
+    return abs(dx + dy)
