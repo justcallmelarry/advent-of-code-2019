@@ -3,7 +3,7 @@ import re
 import sys
 from typing import Any, List
 
-sys.setrecursionlimit(10**6)
+sys.setrecursionlimit(10 ** 6)
 
 
 def lmap(func, *iterables):

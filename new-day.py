@@ -10,7 +10,7 @@ if __name__ == "__main__":
     except Exception:
         day = date.today().day
         if day < 10:
-            day = f'0{day}'
+            day = f"0{day}"
 
     if os.path.isdir(day):
         sys.exit("day alreddy exists")
