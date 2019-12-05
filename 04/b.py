@@ -6,24 +6,24 @@ from utils import get_actual
 from utils import *
 
 
-R2 = re.compile(r'(.)\1+')
-R3 = re.compile(r'(.)\1{2,}')
+R2 = re.compile(r"(.)\1+")
+R3 = re.compile(r"(.)\1{2,}")
 
 
 def check(password):
-    '''
+    """
     It is a six-digit number.
     The value is within the range given in your puzzle input.
     Two adjacent digits are the same (like 22 in 122345).
     Going from left to right, the digits never decrease; they only ever increase or stay the same (like 111123 or 135679).
-    '''
+    """
     if len(password) < 6:
         return
 
     if not R2.search(password):
         return
 
-    _password = R3.sub('', password)
+    _password = R3.sub("", password)
 
     if not R2.search(_password):
         return
@@ -41,7 +41,7 @@ if __name__ == "__main__":
     day = os.path.dirname(os.path.abspath(__file__)).rsplit("/", 1)[-1]
     _input = get_actual(day=int(day), year=2019)
 
-    r = _input.split('-')
+    r = _input.split("-")
 
     passwords = set()
     for password in range(int(r[0]), int(r[1]) + 1):
